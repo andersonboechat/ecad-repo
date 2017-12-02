@@ -1,0 +1,110 @@
+body {
+	font-family: sans-serif !important;
+	font-size: 12px !important;
+	font-weight: bold;
+}
+
+a {
+	color: #3498db !important;
+}
+
+input[type='password'], input[type='text'], textarea {
+	border: 1px solid #000 !important;
+	padding: 6px !important;
+	margin: 0px !important;
+	box-shadow: none !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	line-height: 20px;
+}
+
+input[type='button'], input[type='submit'], .ui-button {
+	background-color: #3498db !important;
+	background-image: -webkit-linear-gradient(top, #3498db, #2980b9) !important;
+	background-image: -moz-linear-gradient(top, #3498db, #2980b9) !important;
+	background-image: -ms-linear-gradient(top, #3498db, #2980b9) !important;
+	background-image: -o-linear-gradient(top, #3498db, #2980b9) !important;
+	background-image: linear-gradient(to bottom, #3498db, #2980b9) !important;
+	font-family: Arial !important;
+	color: #ffffff !important;
+	font-size: 13px !important;
+	padding: 7px 15px !important;
+	text-decoration: none !important;
+	border: none !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+}
+
+input[type='button']:hover, input[type='submit']:hover {
+	background: #3cb0fd !important;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db) !important;
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db) !important;
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db) !important;
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db) !important;
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db) !important;
+}
+
+.ui-login-panel {
+	position: absolute;
+	top: 25%;
+	left: 40%;
+}
+
+.ui-login-panel .ui-panelgrid-cell {
+	text-align: center;
+}
+
+.ui-insert-panel {
+	width: 100%;
+}
+
+.ui-insert-panel input[type='text'] {
+	width: 500px;
+}
+
+.ui-insert-panel textarea {
+	width: 95%;
+}
+
+.left-col {
+	width: 150px;
+}
+
+.right-col {}
+
+.spacer {
+	background: #cccccc !important; 
+	height: 1px !important;
+	margin: 3px 0px;
+}
+
+.home {
+	text-decoration: none;
+	color: #000000 !important;
+}
+
+.ui-datatable {
+	border-color: #000 !important;
+	width: 96%;
+}
+
+.ui-datatable tbody, .ui-datatable td {
+	background: transparent !important;
+	border: 1px solid black !important;
+}
+
+.ui-datatable thead, .ui-datatable th {
+	background: #a1a1a6 !important;
+	border: 1px solid black !important;
+	text-shadow: none !important;
+	color: black !important;
+}
+
+.no-border {border: none !important;}
+.no-border>table>tbody>tr {border: none !important;}
+.no-border>tbody {border: none !important;}
+.no-border>tbody>tr {border: none !important;}
+.no-border>tbody>tr>td {border: none !important;}
+.no-border>div {border: none !important;}

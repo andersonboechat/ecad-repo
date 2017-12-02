@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+</h:head>
+<h:body>
+	<p:message id="message" for="message"/>
+
+	<h:form>
+		<p:panelGrid columns="2" columnClasses="left-col,right-col" styleClass="no-border ui-insert-panel">
+			<p:column>
+				<p:commandLink action="menu-view" value="Home" styleClass="home"/>&nbsp;>&nbsp;<p:commandLink actionListener="#{crudBean.onReset}" value="Excluir" update="@form,message"/>
+			</p:column>
+			<p:column></p:column>
+			<p:outputLabel value="Código da Versão:"/>
+			<p:inputText value="#{crudBean.codigoVersao}">
+				<p:ajax event="blur" listener="#{crudBean.onConsultar}" partialSubmit="true" process="@this"
+						update="itemTable,dataVersao,numeroVersao,message"/>
+			</p:inputText>
+			<p:outputLabel value="Data da Versão:"/>
+			<p:calendar id="dataVersao" value="#{crudBean.versao.data}" pattern="dd/MM/yyyy" disabled="true"/>
+			<p:outputLabel value="Número da Versão:"/>
+			<p:inputText id="numeroVersao" value="#{crudBean.versao.numero}" disabled="true"/>
+		</p:panelGrid>
+		<p:spacer width="100%" styleClass="spacer"/>
+		<p:dataTable id="itemTable" var="item" value="#{crudBean.versao.itens}" emptyMessage="">
+			<p:column headerText="Item">
+				<h:outputText value="#{item.titulo}"/>
+			</p:column>
+			<p:column headerText="Descrição">
+				<h:outputText value="#{item.descricao}"/>
+			</p:column>
+			<p:column headerText="Ação" style="text-align: center">
+				<p:commandLink value="Excluir" actionListener="#{crudBean.onExcluir(item.codigo)}"
+							   partialSubmit="true" process="@this" update="itemTable,message"/>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
