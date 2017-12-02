@@ -1,0 +1,139 @@
+swagger: '2.0'
+info:
+  description: API para tratamento de tweets
+  version: "1.0"
+  title: Ecad WebSservice API
+  # put the contact info for your development or API team
+  contact:
+    email: anderson.boechat@gmail.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: "tweet"
+  description: "Everything about your tweets"
+
+paths:
+  /captar:
+    post:
+      tags: 
+      - "tweet"
+      summary: "Obtem tweets que contenham a palavra passada e armazena no banco."
+      description: ""
+      operationId: "capture"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Texto a ser buscado nos tweets"
+        required: true
+        schema:
+          $ref: "#/definitions/Busca"
+      responses:
+        405:
+          description: "Invalid input"
+  /procurar:
+    post:
+      tags: 
+      - "tweet"
+      summary: "Busca os tweets obtidos que contenham a palavra passada."
+      description: ""
+      operationId: "search"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Texto a ser buscado nos tweets"
+        required: true
+        schema:
+          $ref: "#/definitions/Busca"
+      responses:
+        405:
+          description: "Invalid input"
+  /{idTweet}/estatisticas:
+    get:
+      tags: 
+      - "tweet"
+      summary: "Retorna estatísticas de um tweet obtido pelo id."
+      description: ""
+      operationId: "statistics"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "idTweet"
+        description: "Id do tweet"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+  /mais_comum:
+    get:
+      tags: 
+      - "tweet"
+      summary: "Encontra a palavra mais comum entre os tweets obtidos."
+      description: ""
+      operationId: "mostCommon"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        405:
+          description: "Invalid input"
+  /mais_longa:
+    get:
+      tags: 
+      - "tweet"
+      summary: "Encontra a palavra mais longa entre os tweets obtidos."
+      description: ""
+      operationId: "longest"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        405:
+          description: "Invalid input"
+  /exatamente_em/{numeroRepeticoes}:
+    get:
+      tags: 
+      - "tweet"
+      summary: "Encontra a palavra que se repete exatamente o numero de vezes informado dentre todos os tweets obtidos."
+      description: ""
+      operationId: "exactly"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "numeroRepeticoes"
+        description: "Numero de repetições da palavra"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+definitions:
+  Busca:
+    type: "object"
+    properties:
+      busca:
+        type: "string"
+schemes:
+ - https
+host: localhost:8080
+basePath: /ecadws-1.0/api/tweet
